@@ -1,113 +1,146 @@
 <!DOCTYPE html>
-<html>
-
-<head>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Log in</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/iconfonts/ionicons/css/ionicons.css">
+    <link rel="stylesheet" href="assets/vendors/iconfonts/typicons/src/font/typicons.css">
+    <link rel="stylesheet" href="assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assets/css/shared/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+  </head>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
+<body>
 
-<body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <b>Admin</b>LTE
-    </div>
-    <!-- /.login-logo -->
-    <div class="card">
-        <div class="card-body login-card-body">
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
+          <div class="row w-100">
+            <div class="col-lg-4 mx-auto">
+              <div class="auto-form-wrapper">
+                <form method="POST" action="{{ route('login') }}">
+                  @csrf
 
-                <p class="login-box-msg">Inicia sesión para comenzar tu sesión</p>
+                  <div class="form-group">
+                    <label class="label">Username</label>
+                    <div class="input-group">
+                      <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"           required autocomplete="email" autofocus>
+                      @error('email')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
 
-                <div class="input-group mb-3">
-                    <input id="email" type="email" placeholder="Email"
-                           class="form-control @error('email') is-invalid @enderror" name="email"
-                           value="{{ old('email') }}" required autocomplete="email" autofocus>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
-                        </div>
-                    </div>
-
-                    @error('email')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+                          <i class="mdi mdi-check-circle-outline"></i>
                         </span>
-                    @enderror
-                </div>
-                <div class="input-group mb-3">
-                    <input id="password" type="password" placeholder="Password"
-                           class="form-control @error('password') is-invalid @enderror" name="password" required
-                           autocomplete="current-password">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
+                      </div>
                     </div>
+                  </div>
 
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                  <div class="form-group">
+                    <label class="label">Password</label>
+                    <div class="input-group">
+                      <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                      @error('password')
+                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                      @enderror
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+                          <i class="mdi mdi-check-circle-outline"></i>
                         </span>
-                    @enderror
-                </div>
-                <div class="row">
-                    <div class="col-8">
-                        <div class="icheck-primary">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                {{ old('remember') ? 'checked' : '' }}>
-                            <label for="remember">
-                                Recuérdame
-                            </label>
-                        </div>
+                      </div>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary submit-btn btn-block">Login</button>
+                  </div>
+                  <div class="form-group d-flex justify-content-between">
+                    <div class="form-check form-check-flat mt-0">
+                      <label class="form-check-label"><input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> Recordarme </label>
                     </div>
-                    <!-- /.col -->
-                </div>
-
-                <p class="mb-1">
-                    @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                            {{ __('¿Olvidaste tu contraseña?') }}
-                        </a>
+                     @if (Route::has('password.request'))
+                        <a class="text-black text-small" href="{{ route('password.request') }}" class="text-small forgot-password text-black">{{ __('¿Olvidaste tu contraseña?') }}</a>
                     @endif
-                </p>
-                <p class="mb-0">
-                    <a class="btn btn-link" href="{{ route('register') }}">
-                        {{ __('Registrar un nueva usuario') }}
-                    </a>
-                </p>
+                  </div>
+                  <div class="form-group">
+                  </div>
+                  <div class="text-block text-center my-3">
+              
+                    
 
-            </form>
+
+  <a class="text-black text-small" href="{{ route('register') }}">{{ __('Registrar un nueva usuario') }}</a>
+
+
+                  </div>
+                </form>
+              </div>
+              <ul class="auth-footer">
+                <li>
+                  <a href="#">Conditions</a>
+                </li>
+                <li>
+                  <a href="#">Help</a>
+                </li>
+                <li>
+                  <a href="#">Terms</a>
+                </li>
+              </ul>
+              <p class="footer-text text-center">copyright © 2018 Bootstrapdash. All rights reserved.</p>
+            </div>
+          </div>
         </div>
-        <!-- /.login-card-body -->
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
     </div>
-</div>
-<!-- /.login-box -->
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="assets/vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="assets/js/shared/off-canvas.js"></script>
+    <script src="assets/js/shared/misc.js"></script>
+    <!-- endinject -->
 
-<!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 
