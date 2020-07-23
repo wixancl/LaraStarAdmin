@@ -90,7 +90,7 @@
 
 
 
-
+        
 
 
 
@@ -110,6 +110,11 @@
 
                     <a href="{{ route('login') }}" class="text-black text-small">Login</a>
                   </div>
+
+
+
+
+
                 </form>
               </div>
             </div>
